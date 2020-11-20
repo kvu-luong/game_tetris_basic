@@ -83,9 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	//freeze 
 	function freeze(){
-		if(current.some(index => {
-			return squares[currentPosition + index + width].classList.contains('taken');
-		})){
+		let nextRow = currentPosition + index + width;
+		if(current.some(index => squares[nextRow].classList.contains('taken'))){
 			current.forEach(index => squares[currentPosition + index].classList.add('taken'));
 			//start a new tetromino falling
 			random = Math.floor(Math.random() * theTetrominoes.length);
